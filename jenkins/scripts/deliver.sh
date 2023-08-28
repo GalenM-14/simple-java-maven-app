@@ -26,4 +26,4 @@ ENDING="1.0-SNAPSHOT"
 #echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 #set -x
 ls -l target
-java -jar "target/${NAME}-${VERSION}-${ENDING}.jar"
+java -jar `target/${NAME}-${VERSION}-${ENDING}.jar`
