@@ -24,4 +24,4 @@ VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`
 #echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 #set -x
 ls -l target
-java -jar target/${NAME}-${VERSION}.jar
+java -jar target/${NAME}-${VERSION}${-1.0-SNAPSHOT}.jar
