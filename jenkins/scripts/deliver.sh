@@ -20,13 +20,18 @@ NAME=`mvn help:evaluate -Dexpression=project.name | grep "^[^\[]"`
 VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`
 #set +x
 
-ENDING="1.0-SNAPSHOT"
+#ENDING="1.0-SNAPSHOT"
 
 #echo 'The following command runs and outputs the execution of your Java'
 #echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 #set -x
 echo "NAME: $NAME"
 echo "VERSION: $VERSION"
-echo "ENDING: $ENDING"
+#echo "ENDING: $ENDING"
 ls -l target
-java -jar target/${NAME}-${VERSION}-${ENDING}.jar
+#java -jar target/${NAME}-${VERSION}-${ENDING}.jar
+
+FULL_PATH="target/${NAME}-${VERSION}.jar"
+echo "Full Path: ${FULL_PATH}"
+java -jar "${FULL_PATH}"
+
