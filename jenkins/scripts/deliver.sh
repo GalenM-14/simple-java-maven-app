@@ -19,12 +19,13 @@ mvn jar:jar install:install help:evaluate -Dexpression=project.name
 #set -x
 #VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]" | sed s/[^a-zA-Z0-9.-]//g`
 #set +x
-NAME=$(mvn help:evaluate -Dexpression=project.name | grep "^[^\[]" | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//' | sed 's/[^a-zA-Z0-9.-]//g')
-VERSION=$(mvn help:evaluate -Dexpression=project.version | grep "^[^\[]" | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//' | sed 's/[^a-zA-Z0-9.-]//g')
+NAME=$(mvn help:evaluate -Dexpression=project.name | grep "^[^\[]" | tr -cd '[:print:]')
+VERSION=$(mvn help:evaluate -Dexpression=project.version | grep "^[^\[]" | tr -cd '[:print:]')
 
-# Remove ANSI escape codes
-NAME=$(echo -e "$NAME")
-VERSION=$(echo -e "$VERSION")
+# Remove leading and trailing spaces
+NAME=$(echo "$NAME" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+VERSION=$(echo "$VERSION" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
 
 #ENDING="1.0-SNAPSHOT"
 
