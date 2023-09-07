@@ -32,6 +32,8 @@ echo "DEBUG FINAL PATH target/${NAME}-${VERSION}.jar":
 ls -l target
 #java -jar target/${NAME}-${VERSION}-${ENDING}.jar
 
+echo "DEBUG THIS ????????????????: NAME=$NAME"
+echo "DEBUG THIS ????????????????: VERSION=$VERSION"
 FULL_PATH="target/${NAME}-${VERSION}.jar"
 echo "Full Path: ${FULL_PATH}"
 java -jar "${FULL_PATH}"
