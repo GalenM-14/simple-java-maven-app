@@ -25,8 +25,9 @@ VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`
 #echo 'The following command runs and outputs the execution of your Java'
 #echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 #set -x
-echo "NAME: $NAME"
-echo "VERSION: $VERSION"
+echo "DEBUG NAME: $NAME"
+echo "DEBUG VERSION: $VERSION"
+echo "DEBUG FINAL PATH target/${NAME}-${VERSION}.jar": 
 #echo "ENDING: $ENDING"
 ls -l target
 #java -jar target/${NAME}-${VERSION}-${ENDING}.jar
