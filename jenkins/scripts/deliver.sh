@@ -11,13 +11,13 @@ mvn jar:jar install:install help:evaluate -Dexpression=project.name
 #echo 'The following complex command extracts the value of the <name/> element'
 #echo 'within <project/> of your Java/Maven project''s "pom.xml" file.'
 #set -x
-NAME=`mvn help:evaluate -Dexpression=project.name | grep "^[^\[]" | sed 's/[^a-zA-Z0-9.-]//g``
+NAME=`mvn help:evaluate -Dexpression=project.name | grep "^[^\[]" | sed s/[^a-zA-Z0-9.-]//g`
 #set +x
 
 #echo 'The following complex command behaves similarly to the previous one but'
 #echo 'extracts the value of the <version/> element within <project/> instead.'
 #set -x
-VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]" | sed 's/[^a-zA-Z0-9.-]//g``
+VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]" | sed s/[^a-zA-Z0-9.-]//g`
 #set +x
 
 #ENDING="1.0-SNAPSHOT"
